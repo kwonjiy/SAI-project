@@ -1,40 +1,37 @@
-# 02-container.md
-```markdown
-# Container Diagram (V1, Full Names)
-
 ```mermaid
 flowchart TB
-  subgraph Frontend [React Web (PWA)]
-    UI[User Interface & Router]
-    STATE[State Management]
-    SERVICE_WORKER[Service Worker (오프라인 캐시 & 푸시 알림)]
-    INDEXED_DB[IndexedDB / CacheStorage]
-    UI-->STATE
-    STATE<-->INDEXED_DB
-    UI<-->SERVICE_WORKER
+  subgraph frontend["Frontend: React Web (PWA)"]
+    ui["User Interface & Router"]
+    state["State Management (예: React Query / Zustand)"]
+    sw["Service Worker (오프라인 캐시 & 푸시 알림)"]
+    idb["IndexedDB / CacheStorage (브라우저 로컬 저장소)"]
+    ui --> state
+    state <--> idb
+    ui <--> sw
   end
 
-  subgraph Backend [Spring Boot 3 API]
-    CONTROLLER[REST Controller]
-    SECURITY[Spring Security (JWT / OAuth2)]
-    SERVICE_LAYER[Business Services]
-    REPOSITORY[Repository (JPA / QueryDSL)]
-    FILE_SERVICE[File Handling Service]
-    NOTIFICATION_SERVICE[Notification Service]
-    CONTROLLER-->SECURITY-->SERVICE_LAYER-->REPOSITORY
-    CONTROLLER-->FILE_SERVICE
-    SERVICE_LAYER-->NOTIFICATION_SERVICE
+  subgraph backend["Backend: Spring Boot 3 API"]
+    ctrl["REST Controllers"]
+    sec["Spring Security (JWT / OAuth2)"]
+    svc["Business Services (Auth, Routine, Place, Calendar, Share)"]
+    repo["Repositories (JPA / QueryDSL)"]
+    file["File Service (Presigned URL)"]
+    noti["Notification Service (Scheduler & Push)"]
+    ctrl --> sec --> svc --> repo
+    ctrl --> file
+    svc --> noti
   end
 
-  DATABASE[(PostgreSQL Database)]
-  CACHE[(Redis Cache)]
-  OBJECT_STORAGE[(S3 or MinIO)]
-  PUSH_SERVICE[(Firebase Cloud Messaging)]
-  MAPS[(Google Maps API)]
+  db["PostgreSQL Database"]
+  redis["Redis Cache/Session (옵션)"]
+  s3["S3/MinIO - File Storage (옵션)"]
+  fcm["Firebase Cloud Messaging"]
+  maps["Google Maps API (옵션)"]
 
-  STATE<-->CONTROLLER
-  Backend<-->DATABASE
-  Backend<-->CACHE
-  FILE_SERVICE<-->OBJECT_STORAGE
-  NOTIFICATION_SERVICE-->PUSH_SERVICE
-  UI-.지도 요청.->MAPS
+  state <--> ctrl
+  backend <--> db
+  backend <--> redis
+  file <--> s3
+  noti --> fcm
+  ui -.-> maps
+```
