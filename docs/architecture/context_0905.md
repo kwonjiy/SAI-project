@@ -1,4 +1,3 @@
-```mermaid
 flowchart LR
   user[사용자 (모바일/PC 브라우저)]
   cdn[정적 호스팅/CDN]
@@ -25,4 +24,3 @@ flowchart LR
   api --> fcm
   fe -. 지도/지오코딩 .-> gm
   android -.웹을 포장해 스토어 배포.-> fe
-```
