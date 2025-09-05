@@ -1,7 +1,3 @@
-# 03-components.md
-```markdown
-# Component Diagram (Spring Boot Internals, V1)
-
 ```mermaid
 flowchart TB
   subgraph Web[API Web Layer]
@@ -51,3 +47,4 @@ flowchart TB
     FCM[FCM Client]
     OAUTH_PROVIDERS[OAuth2 Providers]
   end
+```
