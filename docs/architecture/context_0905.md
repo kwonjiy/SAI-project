@@ -1,3 +1,4 @@
+```mermaid
 flowchart LR
   user[사용자 (모바일/PC 브라우저)]
   cdn[정적 호스팅/CDN]
