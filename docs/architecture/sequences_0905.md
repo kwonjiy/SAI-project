@@ -1,8 +1,4 @@
-# 04-sequences.md
-```markdown
-# Sequence Diagrams (V1)
-
-## 소셜 로그인
+소셜 로그인 (OAuth2 → JWT 발급)
 ```mermaid
 sequenceDiagram
   participant U as 사용자
@@ -19,7 +15,10 @@ sequenceDiagram
   API-->>FE: JWT 쿠키 발급
   FE->>API: GET /me
   API-->>FE: 프로필 반환
+```
 
+장소 기록 + 이미지 업로드 (Presigned URL)
+```mermaid
 sequenceDiagram
   FE->>API: POST /files/presigned-url
   API-->>FE: URL 반환
@@ -29,7 +28,10 @@ sequenceDiagram
   API->>DB: INSERT place_logs
   DB-->>API: OK
   API-->>FE: 201 Created
+```
 
+루틴 알림 발송 & 체크
+```mermaid
 sequenceDiagram
   SCH->>API: 스케줄러 트리거
   API->>DB: SELECT routines
@@ -40,3 +42,4 @@ sequenceDiagram
   API->>DB: UPSERT routine_logs
   DB-->>API: OK
   API-->>FE: 200 OK
+```
