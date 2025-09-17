@@ -1,4 +1,5 @@
 package app.sai.user.api.dto;
 
-public class UserRes {
-}
+public record UserRes(
+        Long id, String name, String email, String role, Boolean active
+) {}

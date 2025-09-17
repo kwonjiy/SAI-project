@@ -1,0 +1,23 @@
+# 디폴트 무시된 파일
+/shelf/
+/workspace.xml
+# OS/공통
+.DS_Store
+*.log
+
+# 비밀/환경
+.env*
+!.env.example
+
+# IDE
+.idea/
+*.iml
+
+# Gradle/Java
+.gradle/
+build/
+out/
+
+# Node/Front
+node_modules/
+dist/

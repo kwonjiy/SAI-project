@@ -1,4 +1,21 @@
 spring:
-  application.name: sai
+  application:
+    name: sai
+  datasource:
+    url: jdbc:mysql://localhost:3306/sai?serverTimezone=Asia/Seoul&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    username: kwonjiy
+    password: rnjswldus1!
+  jpa:
+    hibernate:
+      ddl-auto: update   # 개발 단계: update, 운영 단계: validate/none
+    properties:
+      hibernate:
+        format_sql: true
+
 server:
   port: 8080
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.orm.jdbc.bind: trace
