@@ -48,16 +48,16 @@ export default function HomePage() {
 
       {/* ============ 핵심 기능 ============ */}
       <section className="mx-auto max-w-6xl px-6 py-12 sm:py-16">
-        <h2 className="text-center text-2xl font-bold sm:text-3xl">핵심 기능</h2>
+        <h2 className="text-center text-2xl font-bold text-gray-600 sm:text-3xl">핵심 기능</h2>
         <p className="mx-auto mt-3 max-w-xl text-center text-gray-600">
           당신의 일상을 더욱 체계적이고 의미있게 만들어줄 기능들
         </p>
 
         {/* 기능 카드 4개 */}
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 text-gray-600">
           <FeatureCard
             icon={
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-50  text-blue-600">
                 🗓️
               </span>
             }
@@ -95,7 +95,7 @@ export default function HomePage() {
       </section>
 
       {/* ============ 왜 선택해야 할까요? ============ */}
-      <section className="mx-auto max-w-6xl px-6 py-6 sm:py-10">
+      <section className="mx-auto max-w-6xl px-6 py-6 sm:py-10 text-gray-600">
         <h3 className="text-center text-xl font-semibold sm:text-2xl">
           왜 우리 앱을 선택해야 할까요?
         </h3>

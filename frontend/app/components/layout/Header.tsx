@@ -1,5 +1,3 @@
-// app/components/layout/Header.tsx
-
 "use client";
 
 import Link from "next/link";                 // ⬅️ Next.js 내장 라우팅 컴포넌트 (a 태그 대신 사용. CSR 전환 + Prefetch 이점)
@@ -42,7 +40,7 @@ export default function Header(){
         // sticky: 스크롤해도 상단에 고정
         // backdrop-blur + 반투명 배경: 내용이 스르륵 비치는 느낌
         // border-b: 상단 바닥선
-        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-100">
+        <header className="sticky top-0 z-50 bg-white backdrop-blur border-b border-gray-100">
         {/* 컨테이너: 좌우 여백/최대폭/수직 패딩/좌우 정렬 */}
         <div className="mx-auto max-w-6xl px-6 py-3 flex items-center justify-between">
             {/* 좌측: 로고(아이콘 + 텍스트) */}
@@ -51,7 +49,7 @@ export default function Header(){
             {/* 아이콘은 아직 없으니 임시로 emoji 사용. 나중에 교체 가능 */}
             <span aria-hidden className="text-xl">🗓️</span>
             {/* 브랜드명: 'SAI'. hover 시 보라색으로 강조 */}
-            <span className="font-semibold text-lg tracking-tight group-hover:text-purple-600">
+            <span className="font-semibold text-lg tracking-tight text-gray-600 group-hover:text-purple-600">
                 SAI
             </span>
             {/* 스크린 리더용 텍스트: 시각적 숨김 */}
@@ -66,7 +64,7 @@ export default function Header(){
             </nav>
 
             {/* 우측: 인증 버튼 영역 (md 이상에서만 표시) */}
-            <div className="hidden md:flex items-center gap-3 text-sm">
+            <div className="hidden md:flex items-center gap-3 text-gray-600 text-sm">
             <Link href="/auth/login" className="hover:underline">
                 로그인
             </Link>
